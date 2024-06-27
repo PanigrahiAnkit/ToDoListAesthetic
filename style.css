@@ -10,7 +10,7 @@
 .container{
     width: 100%;
     min-height: 100vh;
-    background: linear-gradient(135deg, #030637, #910A67);
+    background: linear-gradient(270deg, #030637, #910A67);
     padding: 10px;
 }
 
@@ -53,6 +53,7 @@ input{
     outline: none;
     background: transparent;
     padding: 10px;
+    font-size: 15px;
 }
 
 button{
@@ -60,6 +61,7 @@ button{
     /* background: #ff5945; */
     color: #fff;
     font-size: 16px;
+    font-weight: 700;
     border: none;
     outline: none;
     padding: 16px 40px;
@@ -75,12 +77,14 @@ ul li{
     user-select: none;
     cursor: pointer;
     position: relative;
+    transition: all 0.3s ease;
 }
 
 ul {
     padding: 10px;
     border-radius: 10px;
     display: none;
+    background: none;
 }
 
 ul:not(:empty) {
@@ -98,8 +102,9 @@ ul li::before{
     background-image: url(assets/unchecked.png);
     background-size: cover;
     background-position: center;
-    top: 9px;
+    top: 10px;
     left: 8px;
+    transition: background-image 0.3s ease;
 }
 
 ul li.checked{
@@ -126,8 +131,19 @@ ul li delbtn{
     border-radius: 40px;
     cursor: pointer;
     color: #fff;
+    transition: opacity 0.3s ease;
 }
 
 ul li delbtn:hover{
     background: #00224D;
+}
+
+ul li.show-delete .delbtn {
+    opacity: 1;
+}
+
+ul li.deleting {
+    opacity: 0;
+    transform: translateX(-100%);
+    transition: all 0.3s ease;
 }
